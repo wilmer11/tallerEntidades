@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head th:replace="~{fragments/head :: head}"></head>
+<body>
+    <header th:replace="~{fragments/headerLayout :: header}"></header>
+    <div class="container p-5">
+        <h1 class="text-center font-bold mb-5">Lista de agentes encargados</h1>
+        <div class="row">
+            <ul th:each="agente : ${agentes}">
+                <li>
+                    <a th:text="${agente.agente}" th:href="@{'/agent/'+${agente.id}}">#</a>
+                </li>
+            </ul>
+        </div>
+        <div class="row mt-3">
+            <form th:action="@{/logout}" method="post" class="p-0">
+                <input type="submit" value="Cerrar sesión" class="btn btn-secondary"/>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

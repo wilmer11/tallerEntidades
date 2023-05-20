@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head th:replace="~{fragments/head :: head}"></head>
+<body>
+    <header th:replace="~{fragments/header :: header}"></header>
+    <div class="container p-5">
+        <h1 class="text-center fs-2 fw-bold">Bienvenidos a minitas de corazón.</h1>
+        <p class="text-center fs-4 fw-medium">Inicia sesión como:</p>
+        <div class="row p-3 justify-content-center">
+            <div class="col-3 pt-5 text-center">
+                <a href="/agents" class="btn btn-primary">Ingresar como Agente</a>
+            </div>
+            <div class="col-3 pt-5 text-center">
+                <a href="/analyst" class="btn btn-primary">Ingresar como Analista</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

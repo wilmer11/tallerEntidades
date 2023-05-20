@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head th:replace="~{fragments/head :: head}"></head>
+<body>
+<header th:replace="~{fragments/headerLayout :: header}"></header>
+<div class="container p-5">
+    <div class="row">
+        <h1 class="text-center font-bold mb-5">Editar proceso de desminado</h1>
+        <form th:action="@{'/analyst/'+${agent.id}}" th:object="${agent}" method="post">
+            <div class ="form-group mb-3">
+                <label> Ubicación </label>
+                <input
+                        type = "text"
+                        name = "ubicacion"
+                        th:field = "*{ubicacion}"
+                        class = "form-control"
+                        placeholder="Ingresa ubicación"
+                />
+            </div>
+
+            <div class ="form-group mb-3">
+                <label> Región </label>
+                <input
+                        type = "text"
+                        name = "region"
+                        th:field = "*{region}"
+                        class = "form-control"
+                        placeholder="Ingresa región"
+                />
+            </div>
+
+            <div class="form-group mb-3">
+                <label> Desminado </label>
+                <input
+                        type = "text"
+                        name = "desminado"
+                        th:field = "*{desminado}"
+                        class = "form-control"
+                        placeholder="Ingresa tipo de desminado"
+                />
+            </div>
+
+            <div class ="form-group mb-3">
+                <label> Agente </label>
+                <input
+                        type = "text"
+                        name = "agente"
+                        th:field = "*{agente}"
+                        class = "form-control"
+                        placeholder="Ingresa Agente"
+                />
+            </div>
+
+            <div class = "box-footer">
+                <button type="submit" class = "btn btn-primary">
+                    Editar proceso
+                </button>
+                <a th:href="@{/analyst}" class="btn btn-secondary">Volver</a>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

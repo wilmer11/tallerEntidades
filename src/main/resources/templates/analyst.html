@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head th:replace="~{fragments/head :: head}"></head>
+<body>
+    <header th:replace="~{fragments/headerLayout :: header}"></header>
+    <div class="container p-5">
+        <div class="row">
+            <h1 class="text-center font-bold mb-5">Listado general de procesos de desminado</h1>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Ubicación</th>
+                    <th scope="col">Región</th>
+                    <th scope="col">Tipo de desminado</th>
+                    <th scope="col">Agente</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="agente : ${agentes}">
+                    <td th:text="${agente.id}">1</td>
+                    <td th:text="${agente.ubicacion}">Text ...</td>
+                    <td th:text="${agente.region}">Text ...</td>
+                    <td th:text="${agente.desminado}">Text ...</td>
+                    <td th:text="${agente.agente}">Text ...</td>
+                    <td style="border:none;">
+                        <a th:href="@{/analyst/edit/{id}(id=${agente.id})}" class="btn btn-primary">Actualizar</a>
+                        <a th:href="@{/analyst/{id}(id=${agente.id})}" class="btn btn-danger">Eliminar</a>
+                    </td>
+                    <br>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="row">
+            <form th:action="@{/logout}" method="post">
+                <a th:href="@{/analyst/new}" class="btn btn-success">Crear proceso desminado</a>
+                <input type="submit" value="Cerrar sesión" class="btn btn-secondary"/>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

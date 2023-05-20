@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head th:replace="~{fragments/head :: head}"></head>
+<body>
+    <header th:replace="~{fragments/headerLayout :: header}"></header>
+    <div class="container p-5">
+        <div class="row">
+            <h1 class="text-center font-bold mb-5">Infomación de procesos que tienes a cargo</h1>
+            <table class="table mb-5">
+                <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Ubicación</th>
+                    <th scope="col">Región</th>
+                    <th scope="col">Tipo de desminado</th>
+                    <th scope="col">Agente</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td th:text="${agente.id}">1</td>
+                    <td th:text="${agente.ubicacion}">Text ...</td>
+                    <td th:text="${agente.region}">Text ...</td>
+                    <td th:text="${agente.desminado}">Text ...</td>
+                    <td th:text="${agente.agente}">Text ...</td>
+                    <br>
+                </tr>
+                </tbody>
+            </table>
+            <a th:href="@{/agents}" class="btn btn-primary w-25 m-auto">Volver</a>
+        </div>
+    </div>
+</body>
+</html>
